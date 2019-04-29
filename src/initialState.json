@@ -1,0 +1,25 @@
+{
+  "catalog": {
+    "banana": {
+      "id": "banana",
+      "name": "Bananas",
+      "price": 21.0,
+      "image":
+        "http://images6.fanpop.com/image/photos/34500000/Banana-3-bananas-34512789-1000-1000.jpg"
+    },
+    "pear": {
+      "id": "pear",
+      "name": "Pears",
+      "price": 39.0,
+      "image":
+        "https://static.independent.co.uk/s3fs-public/thumbnails/image/2014/11/06/17/pears3.jpg"
+    },
+    "tangerine": {
+      "id": "tangerine",
+      "name": "Tangerines",
+      "price": 31.0,
+      "image":
+        "http://wax-oil-flavoring.com/wp-content/uploads/2016/06/Tangerine.jpg"
+    }
+  }
+}
