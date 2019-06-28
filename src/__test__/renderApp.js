@@ -8,15 +8,43 @@ function renderApp(initialState) {
   const result = {
     ...render(<App />),
 
-    // TODO: add or update your helper methods
+    clickCartLineButton(productCardNumber, buttonText) {
+      fireEvent.click(result.getCartLineButton(productCardNumber, buttonText));
+    },
+
+    clickCatalogBuyButton(productCardNumber) {
+      fireEvent.click(result.getCatalogBuyButton(productCardNumber));
+    },
 
     clickNavLink(view) {
       fireEvent.click(result.getNavLink(view));
     },
 
-    getCatalogProductCard(productCardNumber) {
+    getCartLineButton(lineNumber, buttonText) {
+      const buttons = result.getAllByText(buttonText);
+      return buttons[lineNumber];
+    },
+
+    getCartLineRow(lineNumber) {
+      const lines = result.getAllByTestId("cart-line-row");
+      return lines[lineNumber];
+    },
+
+    getCartTotalPriceCell() {
+      return result.getByTestId("cart-totalprice");
+    },
+
+    getCatalogBuyButton(productCardNumber) {
+      return result
+        .getCatalogProductCard(productCardNumber)
+        .querySelector("button");
+    },
+
+    getCatalogProductCard(productCardNumber, element = "") {
       const cards = result.getCatalogProductCards();
-      return cards[productCardNumber];
+      const card = cards[productCardNumber];
+      if (element) return card.querySelector(element);
+      return card;
     },
 
     getCatalogProductCards() {

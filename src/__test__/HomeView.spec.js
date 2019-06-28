@@ -38,21 +38,40 @@ test("For each product the catalog shows the name", () => {
 });
 
 test("For each product the catalog shows the price", () => {
-  // TODO
+  const { getCatalogProductCard } = result;
+
+  expect(getCatalogProductCard(0)).toHaveTextContent("115.6");
+  expect(getCatalogProductCard(1)).toHaveTextContent("20");
 });
 
 test("For each product the catalog shows the picture", () => {
-  // TODO
+  const { getCatalogProductCard } = result;
+
+  expect(getCatalogProductCard(0, "img")).toHaveAttribute("src", "http://p1");
+  expect(getCatalogProductCard(1, "img")).toHaveAttribute("src", "http://p2");
 });
 
 test("For each product the catalog offers the buy option", () => {
-  // TODO
+  const { getCatalogProductCard } = result;
+
+  expect(getCatalogProductCard(0, "button")).toHaveTextContent("Buy");
+  expect(getCatalogProductCard(1, "button")).toHaveTextContent("Buy");
 });
 
 test("When the user clicks to the buy button, the buy button transforms into go to the cart", () => {
-  // TODO
+  const { clickCatalogBuyButton, getCatalogProductCard } = result;
+
+  clickCatalogBuyButton(0);
+
+  expect(getCatalogProductCard(0, "button")).toHaveTextContent("Cart");
+  expect(getCatalogProductCard(1, "button")).toHaveTextContent("Buy");
 });
 
 test("When the user clicks see cart button after buy, it goes to the cart view", () => {
-  // TODO
+  const { clickCatalogBuyButton, container } = result;
+
+  clickCatalogBuyButton(0);
+  clickCatalogBuyButton(0);
+
+  expect(container).toHaveTextContent("Your cart");
 });
